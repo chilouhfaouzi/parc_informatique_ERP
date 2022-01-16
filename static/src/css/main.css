@@ -1,0 +1,8 @@
+.openerp .my_image > img {
+  width: 65px;
+  height: 65px;
+}
+
+.openerp .my_title {
+  color: rgb(5, 75, 133);
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="stock_form_view" model="ir.ui.view">
+            <field name="name">prcinf.stock.form</field>
+            <field name="model">prcinf.stock</field>
+            <field name="arch" type="xml">
+                <form string="stock" version="7.0">
+                    <sheet>
+
+                        <notebook>
+                            <page string="Generalite sur le stock">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="capacity" />
+                                    <field name="lieu" />
+                                    <field name="ref_responsable" />
+                                </group>
+                            </page>
+                            <page string="Serveurs">
+                                <group>
+                                    <field name="ref_serveurs" />
+                                </group>
+                            </page>
+                            <page string="Ordinateurs">
+                                <group>
+                                    <field name="ref_ordns" />
+                                </group>
+                            </page>
+                            <page string="Peripheriques">
+                                <group>
+                                    <field name="ref_peripheriques" />
+                                </group>
+                            </page>
+                            <page string="Tablets">
+                                <group>
+                                    <field name="ref_tablets" />
+                                </group>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="stock_tree">
+            <field name="name">prcinf.stock.tree</field>
+            <field name="model">prcinf.stock</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="liste stock">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="capacity" />
+                    <field name="lieu" />
+                    <field name="ref_responsable" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_stock_seq">
+            <field name="name">action stock</field>
+            <field name="res_model">prcinf.stock</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem name="Menu Stock" id="section_main_menu_stock" parent="parc_informatique" sequence="8" />
+        <menuitem name="Stock" id="menu_stock" parent="section_main_menu_stock" action="action_stock_seq" />
+
+    </data>
+</openerp>

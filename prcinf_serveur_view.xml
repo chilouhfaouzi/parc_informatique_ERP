@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="serveur_form_view" model="ir.ui.view">
+            <field name="name">prcinf.serveur.form</field>
+            <field name="model">prcinf.serveur</field>
+            <field name="arch" type="xml">
+                <form string="serveur" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="generalite sur le serveur">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="type" />
+                                    <field name="os" />
+                                    <field name="ref_brand" />
+                                    <field name="prix" />
+                                    <field name="date_achat" />
+                                    <field name="date_fin_garantie" />
+                                    <field name="ip" />
+                                    <field name="login" />
+                                    <field name="password" />
+                                </group>
+                            </page>
+                            <page string="Configuration Reseau">
+                                <group>
+                                    <field name="ref_reseau" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="serveur_tree">
+            <field name="name">prcinf.serveur.tree</field>
+            <field name="model">prcinf.serveur</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="liste serveur">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="type" />
+                    <field name="os" />
+                    <field name="ref_brand" />
+                    <field name="prix" />
+                    <field name="date_achat" />
+                    <field name="date_fin_garantie" />
+                    <field name="ip" />
+                    <field name="login" />
+                    <field name="password" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_serveur_seq">
+            <field name="name">action serveur</field>
+            <field name="res_model">prcinf.serveur</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem name="Menu Materiel" id="section_main_menu_materiel" parent="parc_informatique" sequence="1" />
+        <menuitem name="Serveur" id="menu_serveur" parent="section_main_menu_materiel" action="action_serveur_seq" sequence="2" />
+
+    </data>
+</openerp>

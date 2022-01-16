@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form ordinateur -->
+        <record id="ordinateur_form_view" model="ir.ui.view">
+            <field name="name">prcinf.ordinateur.form</field>
+            <field name="model">prcinf.ordinateur</field>
+            <field name="arch" type="xml">
+                <form string="ordinateur" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Generalite sur l'ordinateur">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="type" />
+                                    <field name="os" />
+                                    <field name="processeur" />
+                                    <field name="ram" />
+                                    <field name="ip" />
+                                    <field name="mac" />
+                                    <field name="date_achat" />
+                                    <field name="date_fin_garantie" />
+                                    <field name="prix" />
+                                    <field name="ref_brand" />
+                                </group>
+                            </page>
+                            <page string="Gestion de Peripherique">
+                                <group>
+                                    <field name="ref_peripheriques" />
+                                </group>
+                            </page>
+                            <page string="Configuration Reseau">
+                                <group>
+                                    <field name="ref_reseau" />
+                                </group>
+                            </page>
+                            <page string="Other Info">
+                                <group>
+                                    <field name="ref_responsable" />
+                                    <field name="ref_salle" />
+                                    <field name="ref_departement" />
+                                    <field name="ref_fournisseur" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree ordinateur -->
+        <record id="ordinateur_tree_view" model="ir.ui.view">
+            <field name="name">prcinf.ordinateur.tree</field>
+            <field name="model">prcinf.ordinateur</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="ordinateur">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="type" />
+                    <field name="os" />
+                    <field name="processeur" />
+                    <field name="ram" />
+                    <field name="ip" />
+                    <field name="mac" />
+                    <field name="date_achat" />
+                    <field name="date_fin_garantie" />
+                    <field name="prix" />
+                    <field name="ref_departement" />
+                    <field name="ref_brand" />
+                    <field name="ref_reseau" />
+                </tree>
+            </field>
+        </record>
+        <!-- view action ordinateur -->
+        <record id="action_ordinateur" model="ir.actions.act_window">
+            <field name="name">Action ordinateur</field>
+            <field name="res_model">prcinf.ordinateur</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem name="Menu Materiel" id="section_main_menu_materiel" parent="parc_informatique" sequence="1" />
+        <menuitem id="ordinateur_action" name="Ordinateur" parent="section_main_menu_materiel" action="action_ordinateur" sequence="1" />
+    </data>
+</openerp>

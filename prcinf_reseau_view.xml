@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form reseau -->
+        <record id="reseau_form_view" model="ir.ui.view">
+            <field name="name">prcinf.reseau.form</field>
+            <field name="model">prcinf.reseau</field>
+            <field name="arch" type="xml">
+                <form string="Reseau" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Generalite sur le Réseau">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="type" />
+                                    <field name="ip" />
+                                    <field name="default_gateway" />
+                                    <field name="dns" />
+                                </group>
+                            </page>
+                            <page string="Oridinateurs">
+                                <group>
+                                    <field name="ref_ordns" />
+                                </group>
+                            </page>
+                            <page string="Serveurs">
+                                <group>
+                                    <field name="ref_serveurs" />
+                                </group>
+                            </page>
+                            <page string="Tablets">
+                                <group>
+                                    <field name="ref_tablets" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- view tree reseau -->
+        <record id="reseau_tree_view" model="ir.ui.view">
+            <field name="name">prcinf.reseau.tree</field>
+            <field name="model">prcinf.reseau</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Reseau">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="type" />
+                    <field name="ip" />
+                    <field name="default_gateway" />
+                    <field name="dns" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- action reseau -->
+        <record id="reseau_action" model="ir.actions.act_window">
+            <field name="name">Action Reseau</field>
+            <field name="res_model">prcinf.reseau</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem id="menureseau" name="Menu Reseau" parent="parc_informatique" sequence="2" />
+        <menuitem id="reseau" name="Reseau" parent="menureseau" action="reseau_action" />
+    </data>
+</openerp>

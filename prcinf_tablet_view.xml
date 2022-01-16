@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form view tablet -->
+        <record id="tablet_form_view" model="ir.ui.view">
+            <field name="name">prcinf.tablet.form</field>
+            <field name="model">prcinf.tablet</field>
+            <field name="arch" type="xml">
+                <form string="tablet" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Generalite sur le Tablet">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="type" />
+                                    <field name="os" />
+                                    <field name="ref_brand" />
+                                    <field name="prix" />
+                                    <field name="date_achat" />
+                                    <field name="date_fin_garantie" />
+                                </group>
+                            </page>
+                            <page string="Configuration Reseau">
+                                <group>
+                                    <field name="ref_reseau" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree tablet -->
+        <record id="tablet_tree_view" model="ir.ui.view">
+            <field name="name">prcinf.tablet.tree</field>
+            <field name="model">prcinf.tablet</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="tablet">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="type" />
+                    <field name="os" />
+                    <field name="prix" />
+                    <field name="ref_brand" />
+                    <field name="date_achat" />
+                    <field name="date_fin_garantie" />
+                </tree>
+            </field>
+        </record>
+        <!-- view action tablet -->
+        <record id="action_tablet" model="ir.actions.act_window">
+            <field name="name">Action tablet</field>
+            <field name="res_model">prcinf.tablet</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menuitem tablet -->
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem name="Menu Materiel" id="section_main_menu_materiel" parent="parc_informatique" sequence="1" />
+        <menuitem name="Tablette" id="tablet_action" parent="section_main_menu_materiel" action="action_tablet" sequence="3" />
+    </data>
+</openerp>

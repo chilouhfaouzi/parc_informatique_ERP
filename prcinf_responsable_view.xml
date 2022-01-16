@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form responsable -->
+        <record id="responsable_form_view" model="ir.ui.view">
+            <field name="name">prcinf.responsable.form</field>
+            <field name="model">prcinf.responsable</field>
+            <field name="arch" type="xml">
+                <form string="Responsable" version="7.0">
+                    <sheet>
+                        <h1 class="my_title">
+                            Responsable 
+                        </h1>
+                        <notebook>
+                            <page string="Setails sur responsable">
+                                <group>
+                                    <field name="image" widget="image" class="my_image" />
+                                    <field name="name" />
+                                    <field name="cin" />
+                                    <field name="tel" />
+                                    <field name="email" />
+                                    <field name="adresse" />
+                                    <field name="date_naissance" />
+                                    <field name="date_embauche" />
+                                    <field name="ref_departement" />
+                                </group>
+                            </page>
+                            <page string="Stock">
+                                <field name="ref_stock" />
+                            </page>
+                            <page string="Ordinateur">
+                                <field name="ref_ordns" />
+                            </page>
+                            <page string="Serveurs">
+                                <field name="ref_serveurs" />
+                            </page>
+
+                            <page string="Tablets">
+                                <field name="ref_tablets" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree responsable -->
+        <record id="responsable_tree_view" model="ir.ui.view">
+            <field name="name">prcinf.responsable.tree</field>
+            <field name="model">prcinf.responsable</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="responsable">
+                    <field name="name" />
+                    <field name="cin" />
+                    <field name="tel" />
+                    <field name="email" />
+                    <field name="adresse" />
+                    <field name="date_naissance" />
+                </tree>
+            </field>
+        </record>
+        <!-- view kanban responsable -->
+        <record id="responsable_kanban_view" model="ir.ui.view">
+            <field name="name">prcinf.responsable.kanban</field>
+            <field name="model">prcinf.responsable</field>
+            <field name="type">kanban</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_product_vignette">
+                                <a type="open">
+                                    <img class="oe_kanban_image" t-att-src="kanban_image('prcinf.responsable', 'image', record.id.value)" />
+                                </a>
+                                <div class="oe_product_desc">
+                                    <h4>
+                                        <a type="edit">
+                                            <field name="name"></field>
+                                        </a>
+                                    </h4>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- view action responsable -->
+        <record id="action_responsable" model="ir.actions.act_window">
+            <field name="name">Action responsable</field>
+            <field name="res_model">prcinf.responsable</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem id="responsable" name="Menu Responsable" parent="parc_informatique" sequence="5" />
+        <menuitem id="responsable_action" name="Responsable" parent="responsable" action="action_responsable" />
+    </data>
+</openerp>

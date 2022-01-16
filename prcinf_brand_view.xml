@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form brand -->
+        <record id="brand_form_view" model="ir.ui.view">
+            <field name="name">prcinf.brand.form</field>
+            <field name="model">prcinf.brand</field>
+            <field name="arch" type="xml">
+                <form string="brand" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Generalite sur la marque">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree brand -->
+        <record id="brand_tree_view" model="ir.ui.view">
+            <field name="name">prcinf.brand.tree</field>
+            <field name="model">prcinf.brand</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="brand">
+                    <field name="name" />
+                    <field name="code" />
+                </tree>
+            </field>
+        </record>
+        <!-- view action brand -->
+        <record id="action_brand" model="ir.actions.act_window">
+            <field name="name">Action brand</field>
+            <field name="res_model">prcinf.brand</field>
+        </record>
+
+        <!-- menuitem -->
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem id="brand" name="Menu Marque" parent="parc_informatique" sequence="3" />
+        <menuitem id="brand_action" name="Marque" parent="brand" action="action_brand" />
+
+    </data>
+</openerp>

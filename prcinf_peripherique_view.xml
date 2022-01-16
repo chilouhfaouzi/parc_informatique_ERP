@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form peripherique -->
+        <record id="peripherique_form_view" model="ir.ui.view">
+            <field name="name">prcinf.peripherique.form</field>
+            <field name="model">prcinf.peripherique</field>
+            <field name="arch" type="xml">
+                <form string="peripherique" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Generalite sur le peripherique">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="type" />
+                                    <field name="date_achat" />
+                                    <field name="date_fabrication" />
+                                    <field name="prix" />
+                                    <field name="ref_ordinateur" />
+                                    <field name="ref_brand" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree peripherique -->
+        <record id="peripherique_tree_view" model="ir.ui.view">
+            <field name="name">prcinf.peripherique.tree</field>
+            <field name="model">prcinf.peripherique</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="peripherique">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="type" />
+                    <field name="date_achat" />
+                    <field name="date_fabrication" />
+                    <field name="prix" />
+                    <field name="ref_ordinateur" />
+                    <field name="ref_brand" />
+                </tree>
+            </field>
+        </record>
+        <!-- view action peripherique -->
+        <record id="action_peripherique" model="ir.actions.act_window">
+            <field name="name">Action peripherique</field>
+            <field name="res_model">prcinf.peripherique</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem name="Menu Materiel" id="section_main_menu_materiel" parent="parc_informatique" sequence="1" />
+        <menuitem id="peripherique_action" name="Peripherique" parent="section_main_menu_materiel" action="action_peripherique" sequence="4" />
+    </data>
+</openerp>

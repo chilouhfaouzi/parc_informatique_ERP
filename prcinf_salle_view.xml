@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="salle_form_view" model="ir.ui.view">
+            <field name="name">prcinf.salle.form</field>
+            <field name="model">prcinf.salle</field>
+            <field name="arch" type="xml">
+                <form string="salle" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Generalite sur la salle">
+                                <group>
+                                    <field name="name" />
+                                    <field name="numero" />
+                                    <field name="block" />
+                                    <field name="capacity" />
+                                </group>
+                            </page>
+                            <page string="Ordinateurs">
+                                <field name="ref_ordns" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="salle_tree">
+            <field name="name">prcinf.salle.tree</field>
+            <field name="model">prcinf.salle</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="liste salle">
+                    <field name="name" />
+                    <field name="numero" />
+                    <field name="block" />
+                    <field name="capacity" />
+                    <field name="ref_ordns" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_salle_seq">
+            <field name="name">Action Salle</field>
+            <field name="res_model">prcinf.salle</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem name="Menu Salle" id="section_main_menu_salle" parent="parc_informatique" sequence="6" />
+        <menuitem name="Salle" id="menu_salle" parent="section_main_menu_salle" action="action_salle_seq" />
+
+    </data>
+</openerp>

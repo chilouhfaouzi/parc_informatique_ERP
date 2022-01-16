@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="departement_form_view" model="ir.ui.view">
+            <field name="name">prcinf.departement.form</field>
+            <field name="model">prcinf.departement</field>
+            <field name="arch" type="xml">
+                <form string="Departement" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Generalite sur le departement">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="adresse" />
+                                    <field name="tel" />
+                                    <field name="fax" />
+                                    <field name="email" />
+                                    <field name="ref_responsable" />
+                                </group>
+                            </page>
+                            <page string="Oridinateurs">
+                                <field name="ref_ordns" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree departement -->
+        <record id="departement_tree_view" model="ir.ui.view">
+            <field name="name">prcinf.departement.tree</field>
+            <field name="model">prcinf.departement</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Departement">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="adresse" />
+                    <field name="tel" />
+                    <field name="fax" />
+                    <field name="email" />
+                    <field name="ref_responsable" />
+                </tree>
+            </field>
+        </record>
+        <!-- view action departement -->
+        <record id="action_departement" model="ir.actions.act_window">
+            <field name="name">Action Departement</field>
+            <field name="res_model">prcinf.departement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem id="departement" name="Menu Departement" parent="parc_informatique" sequence="4" />
+        <menuitem id="departement_action" name="Departement" parent="departement" action="action_departement" />
+    </data>
+</openerp>

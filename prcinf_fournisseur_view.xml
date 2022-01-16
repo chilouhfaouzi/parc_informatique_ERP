@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form fournisseur -->
+        <record id="fournisseur_form_view" model="ir.ui.view">
+            <field name="name">prcinf.fournisseur.form</field>
+            <field name="model">prcinf.fournisseur</field>
+            <field name="arch" type="xml">
+                <form string="Fournisseur" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="Generalite sur le fournisseur">
+                                <group>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="adresse" />
+                                    <field name="tel" />
+                                    <field name="fax" />
+                                    <field name="email" />
+                                </group>
+                            </page>
+                            <page string="Oridinateurs">
+                                <group>
+                                    <field name="ref_ordns" />
+                                </group>
+                            </page>
+                            <page string="Serveurs">
+                                <group>
+                                    <field name="ref_serveurs" />
+                                </group>
+                            </page>
+                            <page string="Tablets">
+                                <group>
+                                    <field name="ref_tablets" />
+                                </group>
+                            </page>
+                            <page string="Peripheriques">
+                                <group>
+                                    <field name="ref_peripheriques" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- view tree fournisseur -->
+        <record id="fournisseur_tree_view" model="ir.ui.view">
+            <field name="name">prcinf.fournisseur.tree</field>
+            <field name="model">prcinf.fournisseur</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Fournisseur">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="adresse" />
+                    <field name="tel" />
+                    <field name="fax" />
+                    <field name="email" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- view action fournisseur -->
+        <record id="action_fournisseur" model="ir.actions.act_window">
+            <field name="name">Action Fournisseur</field>
+            <field name="res_model">prcinf.fournisseur</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menuitem fournisseur -->
+        <menuitem id="parc_informatique" name="Parc informatique" />
+        <menuitem id="founisseur" name="Menu Fournisseur" parent="parc_informatique" sequence="7" />
+        <menuitem id="fournisseur_action" name="Fournisseur" parent="founisseur" action="action_fournisseur" />
+    </data>
+</openerp>
